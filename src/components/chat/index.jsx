@@ -4,7 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 import io from 'socket.io-client';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Box, Button, Container, Grid} from "@mui/material";
+import {Box, Button, Container} from "@mui/material";
 import MessageForm from "./chatParts/MessageForm";
 import {MessageList} from "./chatParts/MessageList";
 let socket;
@@ -51,22 +51,14 @@ function Chat() {
     return (
         <>
             <ToastContainer/>
-            <Grid container direction="column" style={{height: '100vh'}}>
-                <Grid item>
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
-                        <h2>Welcome, {name}!</h2>
-                        <Link to="/">
-                            <Button style={{borderRadius: 0}} color="secondary" variant="contained">Logout</Button>
-                        </Link>
-                    </Box>
-                </Grid>
-                <Grid item style={{overflow: 'auto', flexGrow: 1, marginBottom: '50px'}}>
-                    <MessageList messages={messages} name={name}/>
-                </Grid>
-                <Grid item style={{position: 'fixed', bottom: 0, width: '100%'}}>
-                    <MessageForm name={name} onSendMessage={handleSendMessage}/>
-                </Grid>
-            </Grid>
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+                <h2>Welcome, {name}!</h2>
+                <Link to="/">
+                    <Button style={{borderRadius: 0}} color="secondary" variant="contained">Logout</Button>
+                </Link>
+            </Box>
+            <MessageList sx={{width: "100%", flexGrow: 1}} messages={messages} name={name}/>
+            <MessageForm name={name} onSendMessage={handleSendMessage}/>
         </>
     );
 }
