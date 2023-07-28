@@ -4,7 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 import io from 'socket.io-client';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Box, Button, Container} from "@mui/material";
+import {Box, Button, Container, Grid} from "@mui/material";
 import MessageForm from "./chatParts/MessageForm";
 import {MessageList} from "./chatParts/MessageList";
 let socket;
