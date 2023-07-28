@@ -1,0 +1,13 @@
+.container {
+    padding: 0 120px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f1eeee;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0;
+    }
+}
