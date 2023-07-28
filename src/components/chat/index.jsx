@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Box, Button, Container} from "@mui/material";
 import MessageForm from "./chatParts/MessageForm";
 import {MessageList} from "./chatParts/MessageList";
-import styles from './chat.module.css'
 let socket;
 
 function Chat() {
@@ -58,7 +57,17 @@ function Chat() {
                     <Button style={{borderRadius: 0}} color="secondary" variant="contained">Logout</Button>
                 </Link>
             </Box>
-            <MessageList sx={{width: "100%", flexGrow: 1}} messages={messages} name={name}/>
+            <Box sx={{
+                width: "100%",
+                flexGrow: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                overflowY: 'auto',
+                height: 'calc(100vh - 100px)'  // adjust this value to fit your top and bottom bar
+            }}>
+                <MessageList messages={messages} name={name}/>
+            </Box>
             <MessageForm name={name} onSendMessage={handleSendMessage}/>
         </>
     );
