@@ -4,7 +4,7 @@ import {Link, useLocation} from 'react-router-dom';
 import io from 'socket.io-client';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {Box, Button, Container, Grid} from "@mui/material";
+import {Box, Button, Container} from "@mui/material";
 import MessageForm from "./chatParts/MessageForm";
 import {MessageList} from "./chatParts/MessageList";
 let socket;
@@ -60,10 +60,10 @@ function Chat() {
                         </Link>
                     </Box>
                 </Grid>
-                <Grid item style={{overflow: 'auto', flexGrow: 1}}>
+                <Grid item style={{overflow: 'auto', flexGrow: 1, marginBottom: '50px'}}>
                     <MessageList messages={messages} name={name}/>
                 </Grid>
-                <Grid item>
+                <Grid item style={{position: 'fixed', bottom: 0, width: '100%'}}>
                     <MessageForm name={name} onSendMessage={handleSendMessage}/>
                 </Grid>
             </Grid>
